@@ -1,0 +1,11 @@
+{
+  "verbose": true,
+  "ignore": [],
+  "watch": ["src/**/*.ts", "src/**/*.js"],
+  "execMap": {
+    "ts": "node --require ts-node/register",
+    "js": "node --require ts-node/register"
+  },
+  "ext": "ts,js",
+  "signal": "SIGINT"
+}
