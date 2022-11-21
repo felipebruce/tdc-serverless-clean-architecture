@@ -12,18 +12,15 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-tasks:
-  start-web-api:
-    description: Start web api
-    run:
-      container: node-container
-      command: yarn dev
-      ports:
-        - local: 3001
-          container: 3001
-        - local: 9229
-          container: 9229
-
-include:
-  - type: file
-    path: .batect/container/node-18-12-1.yaml
+containers:
+  node-container:
+    image: node:18.12.1-alpine
+    volumes:
+      - local: ./
+        container: /container-code
+        options: cached
+    working_directory: /container-code
+    enable_init_process: true
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/container-user
