@@ -1,0 +1,38 @@
+#  Copyright (c) 2022  Felipe Rocha Bruce
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+containers:
+  node-container:
+    image: node:18.12.1-alpine
+    volumes:
+      - local: ./
+        container: /container-code
+        options: cached
+    working_directory: /container-code
+    enable_init_process: true
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/container-user
+
+tasks:
+  start-web-api:
+    description: Start web api
+    run:
+      container: node-container
+      command: yarn startApi
+      ports:
+        - local: 3001
+          container: 3001
+        - local: 9229
+          container: 9229
