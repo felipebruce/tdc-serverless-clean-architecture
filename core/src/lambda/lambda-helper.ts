@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-import express from "express";
-import morgan from "morgan";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
+import { LambdaResultInterface } from "./lambda-result.interface";
 
-const app = express();
-
-app.use(json());
-app.use(morgan('combined'));
-app.use(urlencoded({ extended: true }));
-
-// routes
-app.use('/version', versionRouter);
-
-export { app };
+export class LambdaHelper {
+  public static createLambdaResult(
+    body: any,
+    statusCode: number
+  ): LambdaResultInterface {
+    return {
+      body: JSON.stringify(body),
+      statusCode,
+    };
+  }
+}

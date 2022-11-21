@@ -14,18 +14,6 @@
  * limitations under the License.
  */
 
-import express from "express";
-import morgan from "morgan";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
-
-const app = express();
-
-app.use(json());
-app.use(morgan('combined'));
-app.use(urlencoded({ extended: true }));
-
-// routes
-app.use('/version', versionRouter);
-
-export { app };
+export interface GetAppVersionOutputInterface {
+  appVersion: string;
+}

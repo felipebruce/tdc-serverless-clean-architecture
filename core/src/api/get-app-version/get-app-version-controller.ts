@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-import express from "express";
-import morgan from "morgan";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
+import { GetAppVersionResponseInterface } from "./data-transfer-object/get-app-version-response.interface";
+import { GetAppVersionUcInterface } from "./use-cases/get-app-version-uc/get-app-version-uc.interface";
 
-const app = express();
+export class GetAppVersionController {
+  public constructor(private getAppVersionUC: GetAppVersionUcInterface) {}
 
-app.use(json());
-app.use(morgan('combined'));
-app.use(urlencoded({ extended: true }));
+  public async handler(): Promise<GetAppVersionResponseInterface> {
+    const appVersionFromUC = await this.getAppVersionUC.getAppVersion();
+    const { appVersion } = appVersionFromUC;
 
-// routes
-app.use('/version', versionRouter);
-
-export { app };
+    return {
+      appVersion,
+    };
+  }
+}

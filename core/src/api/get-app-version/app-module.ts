@@ -14,18 +14,13 @@
  * limitations under the License.
  */
 
-import express from "express";
-import morgan from "morgan";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
+import { EnvVersionRepository } from "core/src/data/repository/version/env-version-repository";
+import { GetAppVersionController } from "./get-app-version-controller";
+import { GetAppVersionUc } from "./use-cases/get-app-version-uc/get-app-version-uc";
 
-const app = express();
+const versionRepository = new EnvVersionRepository();
+const getAppVersionUC = new GetAppVersionUc(versionRepository);
 
-app.use(json());
-app.use(morgan('combined'));
-app.use(urlencoded({ extended: true }));
+const controller = new GetAppVersionController(getAppVersionUC);
 
-// routes
-app.use('/version', versionRouter);
-
-export { app };
+export { controller };

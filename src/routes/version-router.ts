@@ -14,15 +14,28 @@
  * limitations under the License.
  */
 
-import { VersionController } from "../controller/version-controller";
 import express, { Request, Response } from "express";
+import { GetAppVersionResponseInterface } from "core/src/api/get-app-version/data-transfer-object/get-app-version-response.interface";
+import { HttpStatusCode } from "core/src/http/http-status-code";
+import { handler as getApiVersionHandler } from "../../core/src/api/get-app-version/index";
+
 const versionRouter = express.Router();
 
 versionRouter.get("/", async (_: Request, res: Response) => {
-  const versionController = new VersionController();
-  const appVersion = await versionController.getAppVersion();
+  try {
+    let bodyObj;
+    const appVersion = await getApiVersionHandler();
+    const { body, statusCode } = appVersion;
 
-  res.send({ appVersion: appVersion }).status(200).send();
+    if (statusCode === HttpStatusCode.OK) {
+      bodyObj = JSON.parse(body) as GetAppVersionResponseInterface;
+      res.send({ appVersion: bodyObj.appVersion }).status(statusCode).send();
+    } else {
+      res.send(body).status(statusCode).send();
+    }
+  } catch (error) {
+    res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).send();
+  }
 });
 
 export { versionRouter };

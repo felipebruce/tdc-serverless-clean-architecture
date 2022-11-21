@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-import { EnvManager } from "../data/envs/env-manager";
+import { EnvManager } from "../../env/env-manager";
+import { VersionRepositoryInterface } from "./version-repository.interface";
 
-export class VersionController {
+export class EnvVersionRepository implements VersionRepositoryInterface {
   public getAppVersion(): Promise<string> {
     const appVersion = EnvManager.instance.getAppVersion();
 

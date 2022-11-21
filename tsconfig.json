@@ -1,21 +1,25 @@
 {
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ES2020",
     "downlevelIteration": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "incremental": true,
     "removeComments": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "rootDir": "src",
     "useUnknownInCatchVariables": false,
     "strictPropertyInitialization": false,
     "outDir": "dist",
-    "rootDirs": ["src", "tests"],
+    "baseUrl": "./",
+    "rootDirs": ["src", "core", "tests"],
     "lib": ["ES2017"]
   },
+  "include": ["src/**/*.ts", "tests/**/*.ts", "core/**/*.ts"],
   "exclude": ["scripts"]
 }
