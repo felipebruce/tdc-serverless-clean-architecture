@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-import express from "express";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
+import { EnvManager } from "../data/envs/env-manager";
 
-const app = express();
+export class VersionController {
+  public getAppVersion(): Promise<string> {
+    const appVersion = EnvManager.instance.getAppVersion();
 
-app.use(json());
-app.use(urlencoded({ extended: true }));
-
-// routes
-app.use('/version', versionRouter);
-
-export { app };
+    return Promise.resolve(appVersion);
+  }
+}

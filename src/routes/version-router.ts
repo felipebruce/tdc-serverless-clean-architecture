@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-import express from "express";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
+import { VersionController } from "../controller/version-controller";
+import express, { Request, Response } from "express";
+const versionRouter = express.Router();
 
-const app = express();
+versionRouter.get("/", async (_: Request, res: Response) => {
+  const versionController = new VersionController();
+  const appVersion = await versionController.getAppVersion();
 
-app.use(json());
-app.use(urlencoded({ extended: true }));
+  res.send({ appVersion: appVersion }).status(200).send();
+});
 
-// routes
-app.use('/version', versionRouter);
-
-export { app };
+export { versionRouter };

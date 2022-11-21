@@ -14,16 +14,26 @@
  * limitations under the License.
  */
 
-import express from "express";
-import { json, urlencoded } from "body-parser";
-import { versionRouter } from "./routes/version-router";
+import { config } from "dotenv";
 
-const app = express();
+export class EnvManager {
+  private static singletonInstance: EnvManager;
 
-app.use(json());
-app.use(urlencoded({ extended: true }));
+  private constructor() {
+    const configResult = config();
+    
+    if(configResult.error) throw new Error('It was not possible to load .ENV file');
+  }
 
-// routes
-app.use('/version', versionRouter);
+  public static get instance(): EnvManager {
+    if (!this.singletonInstance) {
+      this.singletonInstance = new this();
+    }
 
-export { app };
+    return this.singletonInstance;
+  }
+
+  public getAppVersion(): string {
+    return process.env.APP_VERSION || "";
+  }
+}

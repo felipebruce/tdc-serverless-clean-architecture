@@ -1,7 +1,8 @@
 {
   "name": "tdc-serverless-clean-architecture",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.js",
   "repository": "git@github.com:felipebruce/tdc-serverless-clean-architecture.git",
   "author": "Felipe Bruce <felipenxk8@gmail.com>, Thiago Lopes da Silva <thiagoolsilva@gmail.com>",
   "license": "Apache V2.0",
@@ -12,7 +13,7 @@
   "homepage": "https://github.com/felipebruce/tdc-serverless-clean-architecture#readme",
   "scripts": {
     "build": "./node_modules/.bin/tsc -p tsconfig.json",
-    "startApi": "DEBUG=express:* nodemon -L --inspect=0.0.0.0:9229 src/server.ts",
+    "dev": "DEBUG=express:* nodemon -L --inspect=0.0.0.0:9229 src/server.ts",
     "format": "yarn prettier --write .",
     "prehusky": "./node_modules/.bin/rimraf .husky",
     "husky": "./node_modules/.bin/husky install",
@@ -20,7 +21,8 @@
   },
   "dependencies": {
     "express": "4.17.1",
-    "body-parser": "1.19.0"
+    "body-parser": "1.19.0",
+    "dotenv": "14.3.2"
   },
   "devDependencies": {
     "pretty-quick": "3.1.1",
