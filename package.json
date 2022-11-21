@@ -14,6 +14,7 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc -p tsconfig.json",
     "dev": "nodemon -L --inspect=0.0.0.0:9229 src/server.ts",
+    "test:unit-testing": "NODE_ENV=test jest --runInBand --detectOpenHandles --testRegex='.spec.ts' --testPathPattern=tests/unit-testing -c tests/unit-testing/jest.config.js",
     "format": "yarn prettier --write .",
     "prehusky": "./node_modules/.bin/rimraf .husky",
     "husky": "./node_modules/.bin/husky install",
@@ -26,6 +27,7 @@
     "morgan": "1.10.0"
   },
   "devDependencies": {
+    "@types/jest": "27.4.0",
     "@commitlint/cli": "16.1.0",
     "@commitlint/config-conventional": "16.0.0",
     "@tsconfig/recommended": "1.0.1",
@@ -43,6 +45,6 @@
     "ts-jest": "27.1.3",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.1.0",
-    "typescript": "4.4.4"
+    "typescript": "4.5.5"
   }
 }

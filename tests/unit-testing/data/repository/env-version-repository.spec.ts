@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-import { EnvVersionRepository } from "../../data/repository/version/env-version-repository";
-import { GetAppVersionController } from "./get-app-version-controller";
-import { GetAppVersionUc } from "./use-cases/get-app-version-uc/get-app-version-uc";
+import { describe, expect, test } from "@jest/globals";
+import { EnvVersionRepository } from "../../../../core/src/data/repository/version/env-version-repository";
 
-const versionRepository = new EnvVersionRepository();
-const getAppVersionUC = new GetAppVersionUc(versionRepository);
+describe("Env Version Repository", () => {
+  test("should read app version from environment variable", async () => {
+    const envVersionRepository = new EnvVersionRepository();
+    const appVersion = await envVersionRepository.getAppVersion();
 
-const controller = new GetAppVersionController(getAppVersionUC);
-
-export { controller };
+    expect(appVersion).not.toBeNull();
+    expect(appVersion).not.toBeUndefined();
+  });
+});

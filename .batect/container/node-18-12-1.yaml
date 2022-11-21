@@ -16,7 +16,7 @@ containers:
   node-container:
     image: node:18.12.1-alpine
     volumes:
-      - local: ./
+      - local: ../../
         container: /container-code
         options: cached
     working_directory: /container-code
