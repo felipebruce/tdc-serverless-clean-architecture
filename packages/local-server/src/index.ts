@@ -22,10 +22,10 @@ import { versionRouter } from "./routes/version-router";
 const app = express();
 
 app.use(json());
-app.use(morgan('combined'));
+app.use(morgan("combined"));
 app.use(urlencoded({ extended: true }));
 
 // routes
-app.use('/version', versionRouter);
+app.use("/version", versionRouter);
 
 export { app };

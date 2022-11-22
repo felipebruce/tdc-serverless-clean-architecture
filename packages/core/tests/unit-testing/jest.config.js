@@ -6,11 +6,11 @@
 module.exports = {
   modulePaths: ["<rootDir>"],
 
-  setupFiles: ['dotenv/config'],
+  setupFiles: ["dotenv/config"],
 
-  testEnvironment: 'node',
+  testEnvironment: "node",
 
-  preset: 'ts-jest',
+  preset: "ts-jest",
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,

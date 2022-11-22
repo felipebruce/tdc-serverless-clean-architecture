@@ -15,9 +15,9 @@
  */
 
 import express, { Request, Response } from "express";
-import { GetAppVersionResponseInterface } from "../../api/get-app-version/data-transfer-object/get-app-version-response.interface";
-import { HttpStatusCode } from "../../common/http/http-status-code";
-import { handler as getApiVersionHandler } from "../../api/get-app-version/index";
+import { GetAppVersionResponseInterface } from "core/src/api/get-app-version/data-transfer-object/get-app-version-response.interface";
+import { HttpStatusCode } from "core/src/common/http/http-status-code";
+import { handler as getApiVersionHandler } from "core/src/api/get-app-version/index";
 
 const versionRouter = express.Router();
 

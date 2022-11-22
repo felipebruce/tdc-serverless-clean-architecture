@@ -17,7 +17,7 @@ tasks:
     description: Start web api
     run:
       container: node-container
-      command: yarn dev
+      command: yarn project:start-api
       ports:
         - local: 3001
           container: 3001

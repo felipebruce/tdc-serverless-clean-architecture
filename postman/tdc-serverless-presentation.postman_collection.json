@@ -1,32 +1,28 @@
 {
-	"info": {
-		"_postman_id": "ccf0f06f-97a9-4b95-b4a3-723c1cb6161c",
-		"name": "tdc-serverless-presentation",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "249988"
-	},
-	"item": [
-		{
-			"name": "version",
-			"item": [
-				{
-					"name": "get app version",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/version",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"version"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "ccf0f06f-97a9-4b95-b4a3-723c1cb6161c",
+    "name": "tdc-serverless-presentation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "249988"
+  },
+  "item": [
+    {
+      "name": "version",
+      "item": [
+        {
+          "name": "get app version",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/version",
+              "host": ["{{base_url}}"],
+              "path": ["version"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

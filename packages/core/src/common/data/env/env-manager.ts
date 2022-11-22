@@ -21,8 +21,9 @@ export class EnvManager {
 
   private constructor() {
     const configResult = config();
-    
-    if(configResult.error) throw new Error('It was not possible to load .ENV file');
+
+    if (configResult.error)
+      throw new Error("It was not possible to load .ENV file");
   }
 
   public static get instance(): EnvManager {
