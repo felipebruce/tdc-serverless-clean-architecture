@@ -15,10 +15,10 @@
  */
 
 import { describe, expect, test } from "@jest/globals";
-import { GetAppVersionUc } from "../../../../../core/src/api/get-app-version/use-cases/get-app-version-uc/get-app-version-uc";
+import { GetAppVersionOutputInterface } from "../../../../../src/api/get-app-version/use-cases/get-app-version-uc/business-object/get-app-version-output.interface";
+import { GetAppVersionUc } from "../../../../../src/api/get-app-version/use-cases/get-app-version-uc/get-app-version-uc";
+import { VersionRepositoryInterface } from "../../../../../src/common/data/repository/version/version-repository.interface";
 import { mock } from "jest-mock-extended";
-import { VersionRepositoryInterface } from "../../../../../core/src/data/repository/version/version-repository.interface";
-import { GetAppVersionOutputInterface } from "../../../../../core/src/api/get-app-version/use-cases/get-app-version-uc/business-object/get-app-version-output.interface";
 
 describe("Get AppVersion Use case", () => {
   test("should call in the method getAppVersion in version repository", async () => {

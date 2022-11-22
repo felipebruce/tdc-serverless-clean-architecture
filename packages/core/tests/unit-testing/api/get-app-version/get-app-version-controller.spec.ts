@@ -15,11 +15,11 @@
  */
 
 import { describe, expect, test } from "@jest/globals";
-import { GetAppVersionController } from "../../../../core/src/api/get-app-version/get-app-version-controller";
 import { mock } from "jest-mock-extended";
-import { GetAppVersionUcInterface } from "../../../../core/src/api/get-app-version/use-cases/get-app-version-uc/get-app-version-uc.interface";
-import { GetAppVersionOutputInterface } from "../../../../core/src/api/get-app-version/use-cases/get-app-version-uc/business-object/get-app-version-output.interface";
-import { GetAppVersionResponseInterface } from "../../../../core/src/api/get-app-version/data-transfer-object/get-app-version-response.interface";
+import { GetAppVersionController } from "../../../../src/api/get-app-version/get-app-version-controller";
+import { GetAppVersionResponseInterface } from "../../../../src/api/get-app-version/data-transfer-object/get-app-version-response.interface";
+import { GetAppVersionOutputInterface } from "../../../../src/api/get-app-version/use-cases/get-app-version-uc/business-object/get-app-version-output.interface";
+import { GetAppVersionUcInterface } from "../../../../src/api/get-app-version/use-cases/get-app-version-uc/get-app-version-uc.interface";
 
 describe("Get App Version Controller", () => {
   test("should return valid output", async () => {

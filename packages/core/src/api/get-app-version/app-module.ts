@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { EnvVersionRepository } from "../../data/repository/version/env-version-repository";
+import { EnvVersionRepository } from "../../common/data/repository/version/env-version-repository";
 import { GetAppVersionController } from "./get-app-version-controller";
 import { GetAppVersionUc } from "./use-cases/get-app-version-uc/get-app-version-uc";
 

@@ -15,7 +15,7 @@
  */
 
 import { describe, expect, test } from "@jest/globals";
-import { EnvVersionRepository } from "../../../../core/src/data/repository/version/env-version-repository";
+import { EnvVersionRepository } from "../../../../src/common/data/repository/version/env-version-repository";
 
 describe("Env Version Repository", () => {
   test("should read app version from environment variable", async () => {

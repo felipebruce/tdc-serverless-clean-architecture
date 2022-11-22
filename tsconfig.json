@@ -16,10 +16,8 @@
     "useUnknownInCatchVariables": false,
     "strictPropertyInitialization": false,
     "outDir": "dist",
-    "baseUrl": "./",
-    "rootDirs": ["src", "core", "tests"],
+    "baseUrl": ".packages",
     "lib": ["ES2017"]
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "core/**/*.ts"],
   "exclude": ["scripts"]
 }

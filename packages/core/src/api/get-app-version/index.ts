@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { HttpStatusCode } from "../../http/http-status-code";
-import { LambdaHelper } from "../../lambda/lambda-helper";
-import { LambdaResultInterface } from "../../lambda/lambda-result.interface";
+import { HttpStatusCode } from "../../common/http/http-status-code";
+import { LambdaHelper } from "../../common/lambda/lambda-helper";
+import { LambdaResultInterface } from "../../common/lambda/lambda-result.interface";
 import { controller } from "./app-module";
 
 const handler = async (): Promise<LambdaResultInterface> => {

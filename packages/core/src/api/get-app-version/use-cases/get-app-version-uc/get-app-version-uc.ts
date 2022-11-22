@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { VersionRepositoryInterface } from "../../../../data/repository/version/version-repository.interface";
+import { VersionRepositoryInterface } from "../../../../common/data/repository/version/version-repository.interface";
 import { GetAppVersionOutputInterface } from "./business-object/get-app-version-output.interface";
 import { GetAppVersionUcInterface } from "./get-app-version-uc.interface";
 
