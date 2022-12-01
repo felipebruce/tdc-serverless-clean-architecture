@@ -33,7 +33,7 @@
     "typescript": "4.5.5"
   },
   "scripts": {
-    "start-api": "nodemon -L --inspect=0.0.0.0:9229 src/local-server/server.ts",
+    "start-api": "nodemon -L --inspect=0.0.0.0:9229 src/server.ts",
     "build": "./node_modules/.bin/tsc -p tsconfig.json"
   }
 }
