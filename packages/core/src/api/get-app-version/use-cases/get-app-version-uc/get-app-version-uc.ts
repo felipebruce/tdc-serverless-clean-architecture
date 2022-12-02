@@ -17,6 +17,7 @@
 import { VersionRepositoryInterface } from "../../../../common/data/repository/version/version-repository.interface";
 import { GetAppVersionOutputInterface } from "./business-object/get-app-version-output.interface";
 import { GetAppVersionUcInterface } from "./get-app-version-uc.interface";
+import { GetAppVersionOutput } from "./business-object/get-app-version-output";
 
 export class GetAppVersionUc implements GetAppVersionUcInterface {
   public constructor(private versionRepository: VersionRepositoryInterface) {}
@@ -25,8 +26,6 @@ export class GetAppVersionUc implements GetAppVersionUcInterface {
     const appVersionFromRepository =
       await this.versionRepository.getAppVersion();
 
-    return {
-      appVersion: appVersionFromRepository,
-    };
+    return GetAppVersionOutput.createOutput(appVersionFromRepository);
   }
 }

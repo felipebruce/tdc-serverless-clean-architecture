@@ -16,6 +16,7 @@
 
 import { GetAppVersionResponseInterface } from "./data-transfer-object/get-app-version-response.interface";
 import { GetAppVersionUcInterface } from "./use-cases/get-app-version-uc/get-app-version-uc.interface";
+import { GetAppVersionResponse } from "./data-transfer-object/get-app-version-response";
 
 export class GetAppVersionController {
   public constructor(private getAppVersionUC: GetAppVersionUcInterface) {}
@@ -24,8 +25,6 @@ export class GetAppVersionController {
     const appVersionFromUC = await this.getAppVersionUC.getAppVersion();
     const { appVersion } = appVersionFromUC;
 
-    return {
-      appVersion,
-    };
+    return GetAppVersionResponse.createResponse(appVersion);
   }
 }
