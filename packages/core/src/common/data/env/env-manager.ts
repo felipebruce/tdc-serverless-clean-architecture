@@ -21,7 +21,9 @@ export class EnvManager {
   private static singletonInstance: EnvManager;
 
   private constructor() {
-    const configResult = config({ path: resolve(__dirname, '../../../../../../.env') });
+    const configResult = config({
+      path: resolve(__dirname, "../../../../../../.env"),
+    });
 
     if (configResult.error)
       throw new Error("It was not possible to load .ENV file");
