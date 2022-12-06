@@ -28,7 +28,7 @@ const handler = async (): Promise<LambdaResultInterface> => {
     console.log(error);
 
     return LambdaHelper.createLambdaResult(
-      { message: 'Internal server error' },
+      { message: "Internal server error" },
       HttpStatusCode.INTERNAL_SERVER_ERROR
     );
   }
