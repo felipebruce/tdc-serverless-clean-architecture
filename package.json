@@ -16,7 +16,8 @@
   "homepage": "https://github.com/felipebruce/tdc-serverless-clean-architecture#readme",
   "scripts": {
     "project:start-api": "./node_modules/.bin/lerna  run start-api --stream --scope local-server",
-    "project:build": "./node_modules/.bin/lerna run build",
+    "project:build": "yarn && ./node_modules/.bin/lerna run build && yarn move-node-modules-to-dist && find -type l -delete",
+    "move-node-modules-to-dist": "rm -rf ./node_modules && yarn install --production && cp -r ./node_modules ./packages/core/dist/src",
     "project:unit-testing": "./node_modules/.bin/lerna run test:unit-testing --parallel",
     "project:version": "./node_modules/.bin/lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --yes",
     "format": "yarn prettier --write .",
