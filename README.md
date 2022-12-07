@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![License: Apache V2.0](https://img.shields.io/badge/License-Apache V2.0-yellow.svg)](https://github.com/felipebruce/tdc-serverless-clean-architecture/blob/master/LICENSE)
 
-> Code use in TDC presentation 2022
+> Code used in TDC presentation 2022
 
 ### 🏠 [Homepage](https://github.com/felipebruce/tdc-serverless-clean-architecture#readme)
 
